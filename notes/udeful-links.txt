@@ -1,0 +1,2 @@
+zone.js (change tracking) vs signals in angular:
+https://medium.com/@kakarotdevv/change-detection-in-angular-zone-vs-signal-9b35f6a39eea
