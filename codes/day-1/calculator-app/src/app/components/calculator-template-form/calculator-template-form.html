@@ -1,0 +1,22 @@
+<!-- var frm = document.getSlector('form')-->
+<!-- #frm -> template reference variable -->
+<form ngForm (submit)="calculate(frm, frmHtml)" #frm="ngForm" #frmHtml>
+    <fieldset>
+        <legend>using template driven form</legend>
+        <div>
+            <label for="txtFirst">First: &nbsp;</label>
+            <input type="number" id="txtFirst" name="firstNum" ngModel placeholder="enter value here">
+        </div>
+        <div>
+            <label for="txtSecond">Second: &nbsp;</label>
+            <input type="number" id="txtSecond" name="secondNum" ngModel placeholder="enter value here">
+        </div>
+        <div>
+            <button type="submit">Calculate</button>
+        </div>
+        <div>
+            <label for="txtResult">Result: &nbsp;</label>
+            <input type="text" id="txtResult" readonly [value]="result">
+        </div>
+    </fieldset>
+</form>

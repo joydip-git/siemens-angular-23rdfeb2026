@@ -71,12 +71,6 @@ standlone: true/false
 @angular/platform-browser => bootstrapApplication(), platformBrowser()
 
 
-form data handling:
-	template-driven form: manage the form through the template (design/view)
-	use some forms directives such as ngForm, ngModel etc. that helps you to access the whle form element and individual controls and their data
-	reactive form: manage the form through the component code
- 
-
 @angular/forms
 @NgModule({
 	declarations:[NgModelDirective, NgFormDirective],
@@ -101,6 +95,79 @@ export class NgFormDirective{
 	controls:FormControl[]
 }
 
+
+
+input controls and binding
+--------------------------------
+1. using data and event binding on the same input control
+<input type="text" [value]="prop-name" (input) = "method($event.target.value)"/>
+
+2. using signal [data and event binding on the same input control]
+<input type="text" [value]="some-signal-prop()" (input) = "some-signal-prop.set($event.target.value)"/>
+
+
+3. using ngModel ( a directive from FormsModule) and ywo way binding
+<input type="text" [(ngModel)]="prop-name" name="some-name"/>
+
+Note: 
+1. ngModel directive (a custom attribute understood ONLY by Angular) creates a FormControl object and connects one end to the <input> and other end to a property in the component code. the value of the property through that formcontrol flows to the <input> and any change in the value of the input triggers an event of the formcontrol which in turn updates the same property in the component
+
+2. you MUST use "name" attribute of the input element. when the FormControl object is created it is referred by that "name" value.
+
+4. using forms
+	
+	a. template-driven form: manage the form data through the template (design/view)
+	use some forms directives such as ngForm, ngModel etc. in the template that helps you to access the whole form element and individual controls and their data in code
+
+	b. reactive form: manage the form through the component code
+
+pms-app
+
+app
+	app.ts
+	app.html
+	app.css
+	app.spec.ts
+	app.config.ts
+
+	modules (folder)
+		auth (folder)
+			auth-module.ts (file -> AuthModule)
+			componnents (folder)
+				login (folder)
+					login.ts	
+					...
+					...
+				register (folder)
+					register.ts
+					....
+
+
+		products (sub-folder)
+			products-module.ts (module file) -> ProdutsModule
+			components (sub-folder)
+				product-list (sub-folder)
+					product-list.ts
+					product-list.html
+					product-list.css
+				product-detail
+					product-detail.ts
+					product-detail.html
+					product-detail.css
+	
+	productlist, productdetail, addproduct, editproduct
+
+		shared (folder)
+			shared-module.ts (file -> SharedModule)
+			components
+				home
+					home.ts
+					home.html
+					home.css
+			dashboard, home, pagenotfound
+
+
+	
 
 
 

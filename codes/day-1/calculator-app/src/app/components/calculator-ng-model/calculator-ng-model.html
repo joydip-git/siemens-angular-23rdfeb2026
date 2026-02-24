@@ -1,12 +1,12 @@
 <fieldset>
-    <legend>Using data and event binding</legend>
+    <legend>Calculator with NgModel but no form</legend>
     <div>
         <label for="txtFirst">First: &nbsp;</label>
-        <input type="text" id="txtFirst" [value]="first" (input)="updateFirst(+$event.target.value)">
+        <input type="number" id="txtFirst" name="firstNum" [(ngModel)]="first">
     </div>
     <div>
         <label for="txtSecond">Second: &nbsp;</label>
-        <input type="text" id="txtSecond" [value]="second" (input)="updateSecond(+$event.target.value)">
+        <input type="number" id="txtSecond" name="secondNum" [(ngModel)]="second">
     </div>
     <div>
         <button type="button" (click)="calculate()">Calculate</button>

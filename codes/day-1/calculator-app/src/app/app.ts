@@ -1,14 +1,14 @@
 import { Component } from '@angular/core';
 import { CalculatorModule } from './components/calculator/calculator-module';
-import { CalculatorForm } from "./components/calculator-form/calculator-form";
-// import { Calculator } from "./components/calculator/calculator";
+import { CalculatorForm } from "./components/calculator-template-form/calculator-template-form";
+import { CalculatorNgModel } from './components/calculator-ng-model/calculator-ng-model';
+import { CalculatorReactiveForm } from './components/calculator-reactive-form/calculator-reactive-form';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.html',
   styleUrl: './app.css',
-  //imports: [Calculator],
-  imports: [CalculatorModule, CalculatorForm]
+  imports: [CalculatorModule, CalculatorNgModel, CalculatorForm, CalculatorReactiveForm]
 })
 export class App {
 

@@ -1,0 +1,23 @@
+<form [formGroup]="calcForm" (submit)="submit()">
+    <fieldset>
+        <legend>using reactive form</legend>
+        <div>
+            <label for="txtFirst">First: &nbsp;</label>
+            <!-- <input type="number" id="txtFirst" placeholder="enter value here" [formControl]="first"> -->
+            <input type="number" id="txtFirst" placeholder="enter value here" formControlName="first">
+        </div>
+        <div>
+            <label for="txtSecond">Second: &nbsp;</label>
+            <!-- <input type="number" id="txtSecond" placeholder="enter value here" [formControl]="second"> -->
+            <input type="number" id="txtSecond" placeholder="enter value here" formControlName="second">
+        </div>
+        <div>
+            <!-- <button type="button" (click)="submit()">Calculate</button> -->
+            <button type="submit">Calculate</button>
+        </div>
+        <div>
+            <label for="txtResult">Result: &nbsp;</label>
+            <input type="text" id="txtResult" readonly [value]="result">
+        </div>
+    </fieldset>
+</form>
