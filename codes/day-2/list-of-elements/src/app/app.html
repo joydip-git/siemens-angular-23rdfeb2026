@@ -1,0 +1,14 @@
+<h2>
+  List of Names
+</h2>
+<br>
+<ul>
+  <!-- <li *ngFor="let name of names">{{name}}</li> -->
+  @for (name of names(); track $index) {
+    <li>
+      <span>{{name}}</span>
+      &nbsp;
+      <button type="button" (click)="removeName($index)">Delete</button>
+    </li>
+  }
+</ul>

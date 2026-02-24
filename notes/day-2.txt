@@ -118,8 +118,17 @@ Note:
 	
 	a. template-driven form: manage the form data through the template (design/view)
 	use some forms directives such as ngForm, ngModel etc. in the template that helps you to access the whole form element and individual controls and their data in code
+	package: @angular/forms
+	module: FormsModule 
+	directives: ngModel, ngForm
+	types: FormControl, FormGroup, NgForm etc. [@angular/forms]
+
 
 	b. reactive form: manage the form through the component code
+	package: @angular/forms
+	module: ReactiveFormsModule 
+	directives: formGroup, formControl, formControlName, formGroupName
+	types: FormControl, FormGroup [@angular/forms]
 
 pms-app
 
