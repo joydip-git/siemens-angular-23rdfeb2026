@@ -1,0 +1,116 @@
+Angular
+--------------------------
+Client-side JS framework
+helps to develop an web app using a series of components
+it helps you create Single Page Application (SPA)
+
+features:
+------------------
+1. binding - data and event
+2. signal for UI update
+3. dependency injection framework
+4. pass data between components easily
+5. MV-* architecture
+6. routing
+7. HTTP request using built-in service
+etc.
+
+types of angular application:
+	- application
+	- library
+
+modes of angular application:
+	- feature module [>ng new modular-app --standalone=false]
+	- standalone     [>ng new standalone-app [--standalone=true]]
+
+Angular Assets:
+
+asset type		type		decorator	compulsory
+-----------------------------------------------------------------------
+component		class		@Component	yes
+direceive		class		@Directive	yes
+pipe			class		@Pipe		yes	
+service			class		@Injectable	no (better to use)
+
+module			class		@NgModule	yes
+
+
+registration of services:
+1. component level
+2. root level
+
+
+properties of NgModule
+-------------------------------
+declarations: register the component, pipe and directives ONLY in this array 
+
+imports: register the name of other feature modules of this application as well as built-in modules ONLY here in this array
+
+exports: the component, directives, pipes or modules that are registered with this module can be re-exported through this property. it is a subset of the assets registered via declarations and imports property combined
+
+bootstrap: ONLY the name of components (that are already registered with this module through declarations property) that should be loaded by default (bootstrapped) when the module is loaded
+
+providers: register the services ONLY in this array 
+
+
+properties of Component
+------------------------------
+imports: register the name of any component, directive, pipe or module (built-in module or child module) ONLY (not services)
+Note: ONLY available as property if the component is standlone (standalone:true)
+
+selector: name of the custom tag of the component
+template: the design in string format
+templateUrl: the path of the HTML template file
+styles: the CSS styles in an array
+styleUrl: the path of the single CSS file
+styleUrls: the path of the CSS files in an array
+providers: to register a service ONLY to be used for this component
+standlone: true/false
+
+@angular/core => Component, NgModule, PlatformRef etc.
+@angular/platform-browser => bootstrapApplication(), platformBrowser()
+
+
+form data handling:
+	template-driven form: manage the form through the template (design/view)
+	use some forms directives such as ngForm, ngModel etc. that helps you to access the whle form element and individual controls and their data
+	reactive form: manage the form through the component code
+ 
+
+@angular/forms
+@NgModule({
+	declarations:[NgModelDirective, NgFormDirective],
+	exports:[NgModelDirective, NgFormDirective]
+
+})
+export class FormsModule{
+}
+
+@Directive({
+	selector:'[ngModel]',
+	standalone:false
+})
+export class NgModelDirective{
+}
+
+@Directive({
+	selector:'[ngForm]',
+	standalone:false
+})
+export class NgFormDirective{
+	controls:FormControl[]
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
