@@ -1,6 +1,6 @@
 import { Component, signal } from '@angular/core';
-import { productRecords } from '../../../../../data/product-records';
 import { Product } from '../../models/product';
+import { ProductService } from '../../services/product-service';
 
 @Component({
   selector: 'app-product-list',
@@ -10,12 +10,10 @@ import { Product } from '../../models/product';
 })
 export class ProductList {
   products = signal<Product[]>([])
-  constructor() {
-    setTimeout(
-      () => {
-        this.products.set(productRecords)
-      },
-      3000
-    )
+
+  private ps: ProductService;
+  constructor(ps: ProductService) {
+    this.ps = ps
+    this.products.set(this.ps.getProducts())
   }
 }
