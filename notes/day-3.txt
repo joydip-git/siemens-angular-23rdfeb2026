@@ -1,0 +1,27 @@
+CSS -> Cascading Stylesheet
+
+1. inline style: directly applying style on a particulat element. not re-usable. best to avoid.
+<element style="prop-name:value;prop-ame:value;">
+
+2. outline style
+create a separate CSS file and create styles there
+
+a. element selector: name of all the elements on which you want to apply the set of styles. if the page contains multiple instances of the same element all of them will be styled same way.
+
+el1-name, el2-name,...{
+	/*styles*/
+}
+
+b. id selector: id of all the elements on which you want to apply the set of styles. if the page contains multiple instances of the same element with different id ONLY those elements matching to the mentioned ids will be styled.
+
+el1-id, el2-id,...{
+	/*styles*/
+}
+
+c. class selector: no need to mention any element name or id. just create a set of styles and then apply it on an element using "class" attribute
+.class-name{
+	/* styles */
+}
+<el class="class-name">
+
+precedence: inline style > outline style > browser style
