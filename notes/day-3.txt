@@ -55,6 +55,42 @@ export class NgForm{
 	}
 }
 
+Service:
+------------------------
+where you can write any reusable piece of code for any business logic or data access logic or HTTP requests
+you can persist state of data here which any component or other assets can use
+sharing data amongst many assets of an angular application
+
+
+1. create service
+2. register a provider for the service
+
+A. create a provider
+	a. token name same as that of the service [default]
+	b. a token name different from the name of the service [custom token based provider]
+
+default provider object [default token] -> 
+{
+	provide:PostService,
+	useClass: PostService
+}
+
+custom provider object [custom token] -> 
+{
+	provide:'POST_SERVICE',
+	useClass: PostService
+}
+
+
+B. register the provider
+	how/who you want to consume the service?
+	a. a single component -> use 'providers' property of the @Component
+	b. multiple components of the same feature module -> use 'providers' property of the @NgModule [feature module]
+	c. root level ->
+		i. modular app: use 'providers' property of the @NgModule [Root module/App module]
+		ii. standalone app: use 'providers' property of the ApplicationConfig object in the 'app.config.ts'
+
+
 
 
 

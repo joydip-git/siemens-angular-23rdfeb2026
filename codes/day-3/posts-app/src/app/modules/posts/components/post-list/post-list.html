@@ -1,0 +1,22 @@
+@if(posts().length>0){
+<h2>List of Posts</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Title</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (p of posts(); track $index) {
+        <tr>
+            <td>{{p.id}}</td>
+            <td>{{p.title}}</td>
+        </tr>
+        }
+    </tbody>
+</table>
+}
+@else{
+<span>Loading..</span>
+}
