@@ -1,4 +1,6 @@
-export const productRecords:Product[] = [
+import { Product } from "../app/modules/products/models/product";
+
+export const productRecords: Product[] = [
     {
         "productId": 1,
         "productName": "Leaf Rake",
