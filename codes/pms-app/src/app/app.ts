@@ -1,8 +1,9 @@
-import { Component, signal } from '@angular/core';
+import { Component } from '@angular/core';
+import { ProductsModule } from './modules/products/products-module';
 
 @Component({
   selector: 'app-root',
-  imports: [],
+  imports: [ProductsModule],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })

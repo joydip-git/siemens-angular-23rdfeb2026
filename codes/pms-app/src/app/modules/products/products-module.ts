@@ -14,6 +14,7 @@ import { EditProduct } from './components/edit-product/edit-product';
   ],
   imports: [
     CommonModule
-  ]
+  ],
+  exports: [ProductList]
 })
 export class ProductsModule { }
