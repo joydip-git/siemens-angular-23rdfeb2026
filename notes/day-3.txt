@@ -25,3 +25,41 @@ c. class selector: no need to mention any element name or id. just create a set 
 <el class="class-name">
 
 precedence: inline style > outline style > browser style
+
+
+
+directives: extend the behavior of any existing element (html or custom)
+------------------------------------------------------------------------
+ngForm, ngModel (FormsModule), formGroup, formControl, formControlName (ReactiveFormsModule) -> attribute directives -> add additional behavior to the element without any modification to it
+
+*ngFor/@for, *ngIf/@if, *ngIfElse/@if...else, *ngSwitch/@switch -> structural directives -> used to manipulate the DOM for the template
+
+both structural and attribute directives are used as CUSTOM ATTRIBUTES of an element (that only Angular understands)
+
+components -> component directive -> the ONLY directive with template/view. exposed NOT as an attribute, BUT as a CUSTOM HTML TAG (that only Angular understands)
+@Component() will automatically apply @Directive on the component
+
+
+class NgModel{
+	control = new FormControl()
+}
+
+
+@Directive({
+selector:'[ngForm]'})
+export class NgForm{
+	form = new FormGroup()
+	form.controls={
+		name1: new FormControl(),
+		.....
+	}
+}
+
+
+
+
+
+
+
+
+
