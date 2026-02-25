@@ -10,8 +10,8 @@ import { POST_SERVICE } from '../../../../config/constants';
   //providers: [PostService]
 })
 export class PostDetail {
-  private ps: PostService;
-  constructor(@Inject(POST_SERVICE) ps: IDataService) {
-    this.ps = ps
+  //private ps: PostService;
+  constructor(@Inject(POST_SERVICE) private ps: IDataService) {
+    //this.ps = ps
   }
 }

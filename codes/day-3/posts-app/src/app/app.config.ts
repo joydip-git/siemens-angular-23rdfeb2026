@@ -2,12 +2,16 @@ import { ApplicationConfig, provideBrowserGlobalErrorListeners } from '@angular/
 import { provideRouter } from '@angular/router';
 
 import { routes } from './app.routes';
-import { PostService } from './modules/posts/services/post-service';
+import { providePostService } from './config/constants';
+// import { PostService } from './modules/posts/services/post-service';
+// import { provideHttpClient } from '@angular/common/http';
 
 export const appConfig: ApplicationConfig = {
   providers: [
+    //provideHttpClient(),    
     provideBrowserGlobalErrorListeners(),
     provideRouter(routes),
     //PostService
+    //providePostService()
   ]
 };

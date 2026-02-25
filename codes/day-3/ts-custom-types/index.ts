@@ -51,3 +51,20 @@ const subtract: fnType = (a: number, b: number) => a - b;
 
 invoke(add, 12, 13)
 invoke(subtract, 12, 3)
+
+
+class Person {
+    // id: number;
+    // name: string;
+    // salary: number;
+
+    // constructor(id: number, name: string, salary: number) {
+    //     this.id = id
+    //     this.name = name
+    //     this.salary = salary
+    // }
+
+    constructor(public id: number, public name: string; public salary: number) { 
+        
+    }
+}

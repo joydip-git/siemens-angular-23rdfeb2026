@@ -91,6 +91,40 @@ B. register the provider
 		ii. standalone app: use 'providers' property of the ApplicationConfig object in the 'app.config.ts'
 
 
+HTTP requests:
+------------------------
+package: @angular/common/http
+HttpClient -> built-in service
+
+old: 
+module: HttpClientModule (the provider for HttpClient class is registered here) -> deprecated
+
+@NgModule({
+providers:[{provide:HttpClient, useClass:HttpClient}]
+})
+export class HttpClientModule{}
+
+new: instead of importing the HttpClientModule, call the function "provideHttpClient()" which will return the provider object for the service
+providers:[
+	provideHttpClient()
+]
+
+HttpClient asynchronous methods:
+---------------------------------------------
+	a. to send an HTTP request via GET method: get()
+	b. to send an HTTP request via POST method: post()
+	c. to send an HTTP request via PUT method: put()
+	d. to send an HTTP request via DELETE method: delete()
+	e. to send an HTTP request via PATCH method: patch()
+
+all the methods return an Observable object
+
+
+@Injectable()
+
+
+
+
 
 
 

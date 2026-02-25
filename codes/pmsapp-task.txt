@@ -1,0 +1,77 @@
+Initial task: (binding)
+-----------------------------
+1. create an angular app: pmsapp (Standalone)
+
+2. create an interface to represent the product type
+	a. create a "models" directory in the "src/app" folder
+	b. add a file "product.ts" and create an exportable interface "Product" there with all the members (as mentioned in the sample data) with appropriate data type
+
+3. create an array variable to store sample data
+	a. create a folder "repository" inside "src\app" directory
+	b. add a new file "products.ts" inside the "repository" folder
+	c. copy the sample data and assign the same to an array variable (where the array is of type Product array). the variable must be exported from the file.
+
+4. create a separate component (ProductList) which will display all the products from the array avriable in its template through a table element or some oether way (display only the image, name, price and rating property values)
+	a. create a separate folder "products" inside "src\app" directory to store all component, directives, pipes, services etc. for that feature module
+	b. create a folder "components" inside "products"
+	b. inside "components" folder, now create a folder for the component files, named, "product-list"
+	c. add components files - code (product-list.ts), html (product-list.html), style file (product-list.css) etc.
+	d. write the component code which will fetch the products array and create the template design where the those products will be displayed
+
+5. nest the ProductList component inside the App component
+6. run
+
+
+enhancement-1: (passing data between components)
+----------------------------------------------------
+filter the products currently being displayed in the table in ProductList component by a filter text. the filter text will be entered in a text box. for this a separate component (ProductFilter) has to be created. then nest the component in App component. the value entered in the text box in the template of ProductFilter component should be passed to the ProductList component for the filtration.
+Note: no need to filter the product list based on the filter text right now. just make sure that the filter text is passed from ProductFilter to ProductList component.
+
+
+enhancement-3: (services)
+------------------------------------------------
+create a service "ProductService" with a method which will return the array from "products.ts" file 
+register the service with custom provider registration (using a custom string as token)
+dependency inject the service instance through the constructor of ProductList class
+call the service method to get the array of products and assign the same to the existing property of the class (in the constructor)
+
+enhancement-4: (fetch the products data from a backend server)
+--------------------------------------------------------------------
+update ProductService class and its method getProducts() to send an HTTP GET request to the supplied backend API server and pass the data through observable to ProductList component
+You have to change the ProductList component property (to which products array currently is assigned) in order to use signal()
+To map the response (JSON object { "message":"", "data": an object|an array of objects|null) you have to create another model
+cancel the subscription in the component before component destruction
+
+enhancement-5: (create a pipe to filter the products displayed in a table in the ProductList component template based on the filter text entered into the textbox in ProductFilter component and passed to the ProductList component via App component)
+--------------------------------------------------------------------
+create a pipe
+	the transform method should be able to accept the following two arguments:
+	1st: a product array (to be filtered)
+	2nd: the filter text ( by which the array will be filtered)
+	returns: a filtered array of products
+	logic: check which product names include the filter text
+
+app structure:
+---------------------------------
+app
+	products
+		components
+			product-list
+				product-list.ts
+				product-list.html
+				product-list.css
+
+			product-detail
+				product-detail.ts
+				...
+
+		services
+			product.service.ts
+
+		pipes
+			
+
+		directives
+
+	orders
+	

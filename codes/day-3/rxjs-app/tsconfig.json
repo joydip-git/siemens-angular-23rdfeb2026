@@ -1,0 +1,13 @@
+{
+    "compilerOptions": {
+        "rootDir": "src",
+        "outDir": "dist",
+        "target": "es5",
+        "forceConsistentCasingInFileNames": true,
+        "strict": true,
+        "lib": [
+            "DOM",
+            "ES2022"
+        ]
+    }
+}
