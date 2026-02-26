@@ -31,3 +31,56 @@ passing data between components:
 	   use @Input() decorator with that property (the property of a component is only accessible from the component's template)
 
 
+Routing: @angular/router
+-------------------
+/home -> Home
+/     -> Home
+
+products		 -> PC
+products/view/{id} 	 -> PD
+products/edit/{id}	 -> EP [-> PC]
+products/add		 -> AP
+
+anything else 		-> PageNotFound
+
+type:
+-------------------
+Route -> path: and component:
+Routes (Route[]) ->> all routes must be placed
+ActivatedRouteSnapshot
+
+Service:
+--------------
+Router (engine) -> all routes must be registered with it
+ActivatedRoute
+
+component:
+----------------
+RouterOutlet => Acts as a placeholder that Angular dynamically fills based on the current router state.
+
+directives:
+-----------------------
+routerLink
+
+router provider method
+------------------------
+provideRouter(routes) =>  Sets up providers necessary to enable Router functionality for the application. Allows to configure a set of routes as well as extra features that should be enabled.
+
+
+http://localhost:4200/products/edit?id=5
+
+X -> OnX -> ngOnX
+
+changes -> OnChanges -> ngOnChanges
+init -> OnInit -> ngOnInit()
+destroy -> OnDestroy -> ngOnDestroy
+
+
+
+
+
+
+
+
+
+

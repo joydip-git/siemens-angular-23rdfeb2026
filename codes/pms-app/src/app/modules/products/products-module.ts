@@ -9,6 +9,7 @@ import { provideProductServiceProvider } from '../../config/constants';
 import { FilterProduct } from './components/filter-product/filter-product';
 import { ProductContainer } from './components/product-container/product-container';
 import { ProductFilterPipe } from './pipes/product-filter-pipe';
+import { RouterLink } from "@angular/router";
 
 @NgModule({
   declarations: [
@@ -21,12 +22,15 @@ import { ProductFilterPipe } from './pipes/product-filter-pipe';
     ProductFilterPipe
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterLink
+],
+  exports: [
+    //ProductContainer (not required until and unless you are nesting this in another component in anoher module manually)
   ],
-  exports: [ProductContainer],
   providers: [
     //ProductService
-    provideProductServiceProvider()
+    //provideProductServiceProvider()
   ]
 })
 export class ProductsModule { }

@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
+import { ActivatedRoute, ActivatedRouteSnapshot, Router } from '@angular/router';
 
 @Component({
   selector: 'app-product-detail',
@@ -7,5 +8,37 @@ import { Component } from '@angular/core';
   styleUrl: './product-detail.css',
 })
 export class ProductDetail {
+  productId = signal(0)
 
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router
+  ) {
+    // this.route.params
+    //   .subscribe({
+    //     next: (params) => {
+    //       const id = Number(params['id'])
+    //       console.log(id);
+    //       this.productId.set(id)
+    //     }
+    //   })
+
+    const snapshot: ActivatedRouteSnapshot = this.route.snapshot;
+    const id = Number(snapshot.params['id'])
+    console.log(id);
+    this.productId.set(id)
+  }
+
+  goto() {
+    this
+      .router
+      .navigate(
+        ['/products/edit'],
+        {
+          queryParams: {
+            id: this.productId()
+          }
+        }
+      )
+  }
 }

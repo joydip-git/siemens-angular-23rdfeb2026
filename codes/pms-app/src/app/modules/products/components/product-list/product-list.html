@@ -8,8 +8,9 @@
 <span>No product records</span>
 }
 @else{
-<table>
-    <thead id="tableHead">
+<table class="table table-hover">
+    <!-- <thead id="tableHead"> -->
+    <thead>
         <tr>
             <th>Image</th>
             <th>Name</th>
@@ -18,11 +19,11 @@
             <th>Delete</th>
         </tr>
     </thead>
-    <tbody>
+    <tbody class="table-dark">
         @for (p of products()|productfilter:filterText(); track $index) {
         <tr>
             <td>
-                <img [src]="p.imageUrl" alt="NA" class="img-box">
+                <img [routerLink]="['/products/view',p.productId]" [src]="p.imageUrl" alt="NA" class="img-box">
             </td>
             <td>
                 {{p.productName}}
@@ -34,7 +35,8 @@
                 {{p.starRating}}
             </td>
             <td>
-                <button type="button" class="button-style">Delete</button>
+                <!-- <button type="button" class="button-style">Delete</button> -->
+                <button type="button" class="btn btn-danger">Delete</button>
             </td>
         </tr>
         }

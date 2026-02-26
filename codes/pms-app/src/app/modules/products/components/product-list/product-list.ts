@@ -1,4 +1,4 @@
-import { Component, Inject, input, signal } from '@angular/core';
+import { Component, Inject, input, OnDestroy, OnInit, signal } from '@angular/core';
 import { Product } from '../../models/product';
 //import { ProductService } from '../../services/product-service';
 import { PRODUCT_SERVICE_TOKEN } from '../../../../config/constants';
@@ -11,8 +11,9 @@ import { Subscription } from 'rxjs';
   templateUrl: './product-list.html',
   styleUrl: './product-list.css',
 })
-export class ProductList {
+export class ProductList implements OnInit, OnDestroy {
   filterText = input<string>('')
+
   products = signal<Product[]>([])
   errorInfo = signal<string>('')
   isRequestOver = signal<boolean>(false)
@@ -23,8 +24,17 @@ export class ProductList {
   //   this.products.set(this.ps.getProducts())
   // }
   constructor(@Inject(PRODUCT_SERVICE_TOKEN) private ps: IProductServiceContract) {
+    //this.fetchProducts()
+  }
+  ngOnDestroy(): void {
+    //release resources
+  }
+  //executed ONLY once during the lifecycle
+  ngOnInit(): void {
     this.fetchProducts()
   }
+
+
 
   private fetchProducts() {
     this.ps
