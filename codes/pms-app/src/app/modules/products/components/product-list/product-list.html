@@ -1,6 +1,13 @@
-<!-- <button (click)="load()">Load</button> -->
-<br>
-@if(products().length>0){
+@if(!isRequestOver()){
+<span>Loading...please wait</span>
+}
+@else if (errorInfo()!=='') {
+<span>{{errorInfo()}}</span>
+}
+@else if (products().length===0) {
+<span>No product records</span>
+}
+@else{
 <table>
     <thead id="tableHead">
         <tr>
@@ -33,7 +40,4 @@
         }
     </tbody>
 </table>
-}
-@else {
-<span>Loading....</span>
 }

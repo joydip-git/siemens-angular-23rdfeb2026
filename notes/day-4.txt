@@ -1,0 +1,33 @@
+pipe:
+------------
+transformation
+
+{{name|uppercase}} -> new UppercasePipe().transform(name)
+
+{{p.price|currency:'INR':'0-2'}} -> new CurrencyPipe().transform(p.price,'INR','0-2')
+
+@Pipe({
+	name:'uppercase'
+})
+export class UppercasePipe implements PipeTransform{
+	transform(value:string,...args:any[]):string{
+		return value.toLocaleUpperCase()		
+	}
+}
+
+
+passing data between components:
+-------------------------------------
+1. passing data between a parent and child when they are shallowly nested
+
+	a. passing data from parent to child: use data binding
+	   create a property in the child component so that parent component can pass data 
+	   use @Input() decorator with that property (the property of a component is only accessible from the component's template)
+
+	a. passing data from child to parent: use event binding
+	   fire an event from the child component with the data to be passed to the parent as an argument to the event
+	   let parent component in its template (where the child is nested), handle that event by attaching a callback method from the parent component class code
+	   create a property in the app component so that parent component can pass data 
+	   use @Input() decorator with that property (the property of a component is only accessible from the component's template)
+
+

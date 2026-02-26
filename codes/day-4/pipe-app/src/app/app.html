@@ -1,0 +1,17 @@
+<h2>Pipes</h2>
+<div>
+    <label for="txtName">Filter By: &nbsp;</label>
+    <input type="text" id="txtName" [value]="filterText()" (input)="filterText.set($event.target.value)">
+</div>
+<br>
+@if (names().length>0) {
+<ul>
+    @for (name of (names()|filtername:filterText()); track $index) {
+    <!-- <li>{{((name|uppercase)|lowercase)}}</li> -->
+    <li>{{name|uppercase}}</li>
+    }
+</ul>
+}
+@else{
+<span>No names</span>
+}

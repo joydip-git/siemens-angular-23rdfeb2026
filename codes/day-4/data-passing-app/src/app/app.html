@@ -1,0 +1,12 @@
+<h2>Passing data</h2>
+<br>
+<div>
+    Counter in Parent: {{counter}}
+</div>
+<br>
+<button type="button" (click)="increaseCounter()">
+    Increase from Parent
+</button>
+<br>
+<app-child [countervalue]="counter" (countervalueChanged)="receiveData($event)"></app-child>
+<br>

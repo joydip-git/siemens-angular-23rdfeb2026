@@ -123,6 +123,14 @@ all the methods return an Observable object
 @Injectable()
 
 
+type ApiResponse<T> ={
+	message:string,
+	data: T|null
+}
+
+this.http.get<ApiResponse<Poduct[]>>(url)
+
+
 
 
 
