@@ -1,4 +1,4 @@
-import { Component, Inject, signal } from '@angular/core';
+import { Component, Inject, input, signal } from '@angular/core';
 import { Product } from '../../models/product';
 //import { ProductService } from '../../services/product-service';
 import { PRODUCT_SERVICE_TOKEN } from '../../../../config/constants';
@@ -12,6 +12,7 @@ import { Subscription } from 'rxjs';
   styleUrl: './product-list.css',
 })
 export class ProductList {
+  filterText = input<string>('')
   products = signal<Product[]>([])
   errorInfo = signal<string>('')
   isRequestOver = signal<boolean>(false)
@@ -21,7 +22,7 @@ export class ProductList {
   //   this.ps = ps
   //   this.products.set(this.ps.getProducts())
   // }
-  constructor(@Inject(PRODUCT_SERVICE_TOKEN) private ps: IProductServiceContract) { 
+  constructor(@Inject(PRODUCT_SERVICE_TOKEN) private ps: IProductServiceContract) {
     this.fetchProducts()
   }
 

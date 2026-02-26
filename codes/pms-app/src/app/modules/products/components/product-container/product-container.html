@@ -1,0 +1,5 @@
+<div>
+    <app-filter-product (productNameChanged)="updateProductNameText($event)"></app-filter-product>
+    <br>
+    <app-product-list [filterText]="productNameText()"></app-product-list>
+</div>

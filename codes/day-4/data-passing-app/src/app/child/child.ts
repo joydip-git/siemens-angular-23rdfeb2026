@@ -17,6 +17,7 @@ export class ChildComponent {
     increase() {
         // this.countervalue++
         // this.countervalueChanged.emit(this.countervalue)
-        this.countervalueChanged.emit(this.countervalue() + 1)
+        let data = this.countervalue()
+        this.countervalueChanged.emit(data + 1)
     }
 }
