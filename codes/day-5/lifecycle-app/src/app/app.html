@@ -1,0 +1,14 @@
+<div>
+  <label for="txtId">Id: </label>
+  <input type="text" id="txtId" [value]="selectedPostId()" (change)="selectedPostId.set(+$event.target.value)">
+</div>
+<br>
+<button type="button" (click)="show.update((old)=>!old)">{{show()?'Hide':'Show'}}</button>
+<br>
+@if(show()){
+<app-child [count]="counter()" [pid]="selectedPostId()"></app-child>
+}
+<br>
+<button type="button" (click)="counter.update((current)=>current+1)">Increase</button>
+<br>
+<span>Counter in Parent: &nbsp;{{counter()}}</span>

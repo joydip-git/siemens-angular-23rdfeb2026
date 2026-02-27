@@ -1,0 +1,13 @@
+Lifecycle -> createion till destruction
+events that are triggered during that lifecycle
+
+1. component mounting:
+	a. constructor
+	b. changes -> this event gets fired after constructor for the very first time and the parent data is supplied to child
+	c. init
+
+2. component update:
+	a. changes -> this event gets fired every time the parent data is updated and is supplied to child
+
+3. component destruction/unmounting:
+	a. destroy
