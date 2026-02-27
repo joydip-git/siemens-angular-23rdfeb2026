@@ -4,6 +4,7 @@ import { User } from '../../models/user';
 import { AuthService } from '../../services/auth-service';
 import { Subscription } from 'rxjs';
 import { TokenService } from '../../../shared/services/token-service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -21,9 +22,12 @@ export class Login implements OnDestroy {
   private builderSvc = inject(FormBuilder)
   private authSvc = inject(AuthService)
   private tokenSvc = inject(TokenService)
+  private route = inject(ActivatedRoute)
+  private router = inject(Router)
+
   private sub?: Subscription;
 
-  constructor() {    
+  constructor() {
     this.loginForm = this.builderSvc.group({
       username: [''],
       password: ['']
@@ -40,8 +44,6 @@ export class Login implements OnDestroy {
         next: (resp) => {
           const token = resp.data
           if (token !== null) {
-            //save the token
-            console.log(token);
             this.tokenSvc.saveToken(token)
           } else {
             window.alert(resp.message)
@@ -50,6 +52,12 @@ export class Login implements OnDestroy {
         error: () => { },
         complete: () => {
           //redirect to the products by default if login was the originally requested url or to the originally requested url
+          const snapshot = this.route.snapshot;
+          if (snapshot.queryParams['returnUrl']) {
+            this.router.navigate([snapshot.queryParams['returnUrl']])
+          } else {
+            this.router.navigate(['/products'])
+          }
         }
       })
     }
