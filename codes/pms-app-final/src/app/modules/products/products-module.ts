@@ -8,6 +8,7 @@ import { FilterProduct } from './components/filter-product/filter-product';
 import { ProductContainer } from './components/product-container/product-container';
 import { ProductFilterPipe } from './pipes/product-filter-pipe';
 import { RouterLink } from "@angular/router";
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { RouterLink } from "@angular/router";
   ],
   imports: [
     CommonModule,
-    RouterLink
+    RouterLink,
+    ReactiveFormsModule
   ],
   exports: [],
   providers: []

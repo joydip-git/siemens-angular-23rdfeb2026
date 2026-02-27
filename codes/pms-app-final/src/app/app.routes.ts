@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-import { ProductContainer } from './modules/products/components/product-container/product-container';
+import { ProductContainer } from "./modules/products/components/product-container/product-container";
 import { ProductDetail } from './modules/products/components/product-detail/product-detail';
 import { EditProduct } from './modules/products/components/edit-product/edit-product';
 import { AddProduct } from './modules/products/components/add-product/add-product';
@@ -15,10 +15,14 @@ export const routes: Routes = [
         canActivate: [AuthGuard],
         children: [
             {
-                path: '', component: ProductContainer
+                path: '',
+                // loadComponent: () => import('./modules/products/components/product-container/product-container').then((m) => m.ProductContainer)
+                component: ProductContainer
             },
             {
-                path: 'view/:id', component: ProductDetail
+                path: 'view/:id',
+                // loadComponent: () => import('./modules/products/components/product-detail/product-detail').then(m => m.ProductDetail)
+                component: ProductDetail
             },
             {
                 // path: 'edit/:id', component: EditProduct

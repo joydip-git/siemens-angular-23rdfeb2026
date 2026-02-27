@@ -5,12 +5,27 @@
             <label for="txtUserName">UserName: &nbsp;</label>
             <input type="text" id="txtUserName" formControlName="username">
         </div>
+
+        @if(userName?.invalid && (userName?.dirty||userName?.touched)){
+        @if(userName?.errors?.['required']){
+        <div>enter username</div>
+        }
+        }
+
         <div>
             <label for="txtPassword">Password: &nbsp;</label>
             <input type="password" id="txtPassword" formControlName="password">
         </div>
+        @if(passWord?.invalid && (passWord?.dirty||passWord?.touched)){
+        @if(passWord?.errors?.['required']){
+        <div>enter password</div>
+        }
+        @else if(passWord?.errors?.['passwordStrength']){
+        <span>{{passWord?.errors?.['passwordStrength']}}</span>
+        }
+        }
         <div>
-            <button type="submit">LogIn</button>
+            <button type="submit" [disabled]="loginForm.invalid">LogIn</button>
         </div>
     </fieldset>
 </form>

@@ -1,1 +1,49 @@
-<p>add-product works!</p>
+<form [formGroup]="productForm" (submit)="submit()">
+    <fieldset>
+        <legend>Add New Product</legend>
+
+        <div>
+            <label for="txtId" class="form-label mt-4">Id: &nbsp;</label>
+            <input type="number" id="txtId" class="form-control" formControlName="productId">
+        </div>
+
+        <div>
+            <label for="txtName" class="form-label mt-4">Name: &nbsp;</label>
+            <input type="text" formControlName="productName" id="txtName" class="form-control">
+        </div>
+
+        <div>
+            <label for="txtDesc" class="form-label mt-4">Description: &nbsp;</label>
+            <textarea type="text" formControlName="description" id="txtDesc" class="form-control" rows="5" cols="10"></textarea>
+        </div>
+
+        <div>
+            <label for="txtPrice" class="form-label mt-4">Price: &nbsp;</label>
+            <input type="number" formControlName="price" id="txtPrice" class="form-control">
+        </div>
+
+        <div>
+            <label for="txtDate" class="form-label mt-4">Released On: &nbsp;</label>
+            <input type="text" formControlName="releaseDate" id="txtDate" class="form-control">
+        </div>
+
+        <div>
+            <label for="txtCode" class="form-label mt-4">Code: &nbsp;</label>
+            <input type="text" formControlName="productCode" id="txtCode" class="form-control">
+        </div>
+
+        <div>
+            <label for="txtRating" class="form-label mt-4">Rating: &nbsp;</label>
+            <input type="number" formControlName="starRating" id="txtRating" class="form-control">
+        </div>
+
+        <div>
+            <label for="txtImgUrl" class="form-label mt-4">Image: &nbsp;</label>
+            <input type="text" formControlName="imageUrl" id="txtImgUrl" class="form-control">
+        </div>
+        <br>
+        <div style="text-align: center;">
+            <input type="submit" class="btn btn-primary">
+        </div>
+    </fieldset>
+</form>

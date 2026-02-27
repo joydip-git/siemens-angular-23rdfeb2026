@@ -1,10 +1,11 @@
 import { Component, inject, OnDestroy } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { User } from '../../models/user';
 import { AuthService } from '../../services/auth-service';
 import { Subscription } from 'rxjs';
 import { TokenService } from '../../../shared/services/token-service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { passwordStrength } from '../../validators/passowrdstrength';
 
 @Component({
   selector: 'app-login',
@@ -29,10 +30,18 @@ export class Login implements OnDestroy {
 
   constructor() {
     this.loginForm = this.builderSvc.group({
-      username: [''],
-      password: ['']
+      username: ['', Validators.required],
+      password: ['', [Validators.required, passwordStrength]]
     })
   }
+
+  get userName() {
+    return this.loginForm.get('username')
+  }
+  get passWord() {
+    return this.loginForm.get('password')
+  }
+
   ngOnDestroy(): void {
     this.sub?.unsubscribe()
   }
