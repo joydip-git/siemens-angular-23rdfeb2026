@@ -12,4 +12,7 @@ export class TokenService {
   removeToken() {
     this.store.next(null)
   }
+  getToken() {
+    return this.store.getValue()
+  }
 }
