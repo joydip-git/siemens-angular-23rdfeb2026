@@ -1,6 +1,6 @@
-<form ngForm (submit)="submit(frm)" #frm="ngForm">
+<form (submit)="submit(frm)" ngForm #frm="ngForm">
     <fieldset>
-        <legend>Login</legend>
+        <legend>Register</legend>
         <div>
             <label for="txtUserName">UserName: &nbsp;</label>
             <input type="text" id="txtUserName" ngModel name="username">
